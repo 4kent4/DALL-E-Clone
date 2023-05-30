@@ -46,15 +46,16 @@ const CreatePost = () => {
 				const response = await fetch(
 					"https://dall-e-clone-bss2.onrender.com/api/v1/post",
 					{
-						method: "Post",
+						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
 						},
-						body: JSON.stringify(form),
+						body: JSON.stringify({ ...form }),
 					}
 				);
 
 				await response.json();
+				alert("Success");
 				navigate("/");
 			} catch (error) {
 				alert(err);
